@@ -1,1 +1,1 @@
-Olá, eu sou o Goku ;)
+OI, eu sou o Goku ;)
