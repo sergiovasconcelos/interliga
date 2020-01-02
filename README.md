@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Available Scripts - SV Solutions, JWS e CentralDev
 
 In the project directory, you can run:
 
