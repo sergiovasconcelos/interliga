@@ -1,3 +1,3 @@
-exports.handler = (request, response) => {
-    response.send("Hello from Disneylandia!");
+exports.handler = (request, response, param) => {
+    response.send("Hello from " + param);
 }
