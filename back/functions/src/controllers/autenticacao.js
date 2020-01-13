@@ -1,4 +1,4 @@
-exports.cadastrarUsuario = async (req, res, app) => {
+exports.cadastrarUsuario = (req, res, app) => {
     // Inicia a criação do usuario usando email e senha recuperados do body da requisição
     app.auth().createUser({
         email: req.body.email,
@@ -6,8 +6,10 @@ exports.cadastrarUsuario = async (req, res, app) => {
     })
         .then(userRecord => {
             // Grava o email do usuario na coleção de usuarios no firestore
+            // let data_atual = firebase.firestore.Timestamp.now();
             return app.firestore().collection('usuarios').doc(userRecord.uid).set({
-                email: userRecord.email
+                email: userRecord.email,
+                data_criacao: new Date()
             })
         })
         .then(userInData => {
@@ -24,6 +26,6 @@ exports.cadastrarUsuario = async (req, res, app) => {
         })
 }
 
-exports.fazerLogin = async (req, res, app) => {
+exports.fazerLogin = (req, res, app) => {
     res.send('Ok');
 }
