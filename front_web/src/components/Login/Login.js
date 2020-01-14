@@ -39,11 +39,11 @@ const Login = ({ history }) => {
         <form onSubmit={handleLogin}>
           <label htmlFor="email">Email</label>
           <div>
-            <input id="email" name="email" type="email" placeholder="Ex. email@example.com" />
+            <input autoComplete='email' id="email" name="email" type="email" placeholder="Ex. email@example.com" />
           </div>
           <label htmlFor="password">Senha</label>
           <div>
-            <input id="password" name="password" type="password" placeholder="************" />
+            <input autoComplete='current-password' id="password" name="password" type="password" placeholder="************" />
           </div>
           <button type="submit">
             Entrar
