@@ -6,9 +6,13 @@ export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [isLoadding, setIsLoadding] = useState(true);
 
   useEffect(() => {
-    app.auth().onAuthStateChanged(setCurrentUser);
+    app.auth().onAuthStateChanged((user) => {
+      setCurrentUser(user)
+      setIsLoadding(false)
+    });
   }, []);
 
   return (
@@ -17,7 +21,7 @@ export const AuthProvider = ({ children }) => {
         currentUser
       }}
     >
-      {children}
+      {isLoadding ? null : children}
     </AuthContext.Provider>
   );
 };
