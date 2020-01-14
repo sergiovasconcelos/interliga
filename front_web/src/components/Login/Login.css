@@ -1,0 +1,87 @@
+.acesso {
+    height: 90vh;
+    color: rgb(13, 64, 87);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 24px;
+}
+
+.acesso section {
+    color: rgb(13, 64, 87);
+    font-size: 14.9333px;
+    line-height: 22.4px;
+    text-align: center;
+}
+
+.acesso h2 {
+    color: rgb(102, 142, 167);
+    font-size: 16.6px;
+    line-height: 22px;
+    margin-bottom: 25.888px;
+    text-align: center;
+}
+
+.acesso form {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: rgba(114, 182, 234, 0.3) 1px 0px 30px 0px;
+    color: rgb(13, 64, 87);
+    font-size: 17.6px;
+    line-height: 26.4px;
+    padding: 35.2px 26.4px;
+}
+
+.acesso label {
+    background-color: rgb(255, 255, 255);
+    color:rgba(39, 95, 106, 0.85);
+    font-size: 14.6px;
+    font-weight: 600;
+    line-height: 24px;
+    padding: 0px 8px;
+    position: relative;
+    top: 12px;
+    right: 145px;
+}
+
+.acesso div {
+    border-color: rgb(202, 234, 246);
+    border-radius: 7px;
+    border-style: solid;
+    border-width: 1px;
+    color: rgb(13, 64, 87);
+    display: flex;
+    width: 100%;
+    line-height: 26.4px;
+}
+
+.acesso input {
+    background-color: rgb(255, 255, 255);
+    border-radius: 7px;
+    color: rgba(65, 65, 65, 0.9);
+    line-height: 26.4px;
+    padding: 13px 20px;
+    font-size: 15.6px;
+    border: none;
+    width: inherit;
+}
+
+.acesso button {
+    margin-top: 20px;
+    padding: 10px 50px;
+    border-radius: 7px;
+    border: none;
+    background-color: rgb(3, 94, 41);
+    color: rgb(255, 255, 255);
+    font-size: 20.6px;
+}
+
+.cadastre-se_link {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    right: 20px;
+    text-decoration: none;
+    color:rgba(39, 95, 106, 0.85);
+}
