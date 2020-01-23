@@ -38,20 +38,22 @@ const Login = ({ history }) => {
         <h2>Entre com seu email e senha para acessar o sistema.</h2>
         <form onSubmit={handleLogin}>
           <label htmlFor="email">Email</label>
-          <div>
+          <div className="div_input">
             <input autoComplete='email' id="email" name="email" type="email" placeholder="Ex. email@example.com" />
           </div>
           <label htmlFor="password">Senha</label>
-          <div>
+          <div className="div_input">
             <input autoComplete='current-password' id="password" name="password" type="password" placeholder="************" />
           </div>
           <button type="submit">
             Entrar
           </button>
         </form>
-      <Link to="/signup" className="cadastre-se_link">
-        <h4>Cadastre-se</h4>
-      </Link>
+        <div className="cadastre-se_link">
+          <Link className="link" to="/signup" >
+            Cadastre-se
+          </Link>
+        </div>
       </section>
     </main>
 
