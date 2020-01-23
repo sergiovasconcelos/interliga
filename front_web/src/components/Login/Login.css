@@ -1,6 +1,6 @@
 .acesso {
   height: 90vh;
-  color: rgb(13, 64, 87);
+  color: rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,15 +9,16 @@
 }
 
 .acesso section {
-  color: rgb(13, 64, 87);
+  color: rgb(0, 0, 0);
   font-size: 14.9333px;
   line-height: 22.4px;
   text-align: center;
 }
 
 .acesso h2 {
-  color: rgb(102, 142, 167);
+  color: rgb(0, 0, 0);
   font-size: 16.6px;
+  font-weight: 600;
   line-height: 22px;
   margin-bottom: 25.888px;
   text-align: center;
@@ -35,7 +36,7 @@
 
 .acesso label {
   background-color: rgb(255, 255, 255);
-  color: rgba(39, 95, 106, 0.85);
+  color: rgb(13, 64, 87);
   font-size: 14.6px;
   font-weight: 600;
   line-height: 24px;
@@ -45,7 +46,7 @@
   right: 145px;
 }
 
-.acesso div {
+.acesso .div_input {
   border-color: rgb(202, 234, 246);
   border-radius: 7px;
   border-style: solid;
@@ -68,31 +69,39 @@
 }
 
 .acesso button {
-  width: 100%;
+  width: fit-content;
   margin-top: 20px;
-  padding: 15px 50px;
+  padding: 10px 40px;
   border-radius: 7px;
   border: none;
-  background-color: rgb(3, 94, 41);
+  background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
-  font-size: 20.6px;
+  font-size: 18.6px;
 }
 
 .acesso button:hover {
-  background-color: rgb(6, 73, 34);
-  transition-duration: 800ms;
+  background-color: rgb(13, 64, 87);
+  transition-duration: 500ms;
 }
 
 .cadastre-se_link {
+  border: 0px;
   display: flex;
   justify-content: flex-end;
-  position: relative;
-  right: 20px;
-  text-decoration: none;
-  color: rgba(39, 95, 106, 0.85);
+  height: 30px;
 }
 
-.cadastre-se_link:hover {
-  color: rgba(29, 70, 78, 0.85);
-  transition-duration: 800ms;
+.cadastre-se_link .link {
+  position: relative;
+  right: 20px;
+  margin-top: 10px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.cadastre-se_link .link:hover {
+  color: rgb(13, 64, 87);
+  transition-duration: 500ms;
 }
