@@ -1,0 +1,106 @@
+header{
+  height: 50px;
+  background: #00CE9D;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .links {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 200px;
+}
+
+header .link {
+  text-decoration: none;
+  margin-right: 25px;
+  color: #FFF;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 33px;
+}
+
+header .icons {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 200px;
+}
+
+header .icon {
+  height: 28px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+}
+
+.container form {
+  margin-top: 70px;
+  width: 50vw;
+}
+
+.container input {
+  margin: 5px 9px;
+  padding-left: 15px;
+  background: rgba(239, 239, 239, 0.4);
+  border: 1.23424px solid rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  border-radius: 5px;
+  height: 40px;
+  font-size: 18px;
+}
+
+.container form div{
+  display: flex;
+  justify-content: center;
+}
+
+.container form div input {
+  width: 100%;
+}
+
+.email_senha {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.email_senha input {
+  width: 70%;
+}
+
+.usuario_admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  font-style: italic;
+}
+
+.btn_criar_usuario {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.btn_criar_usuario button {
+  width: 180px;
+  height: 50px;
+  background: #00CE9D;
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 35px;
+  text-align: center;
+  color: #FFF;
+}
