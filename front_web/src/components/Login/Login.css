@@ -83,25 +83,3 @@
   background-color: rgb(13, 64, 87);
   transition-duration: 500ms;
 }
-
-.cadastre-se_link {
-  border: 0px;
-  display: flex;
-  justify-content: flex-end;
-  height: 30px;
-}
-
-.cadastre-se_link .link {
-  position: relative;
-  right: 20px;
-  margin-top: 10px;
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  font-weight: 700;
-  font-size: 1.1em;
-}
-
-.cadastre-se_link .link:hover {
-  color: rgb(13, 64, 87);
-  transition-duration: 500ms;
-}
