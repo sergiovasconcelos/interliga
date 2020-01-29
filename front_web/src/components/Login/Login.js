@@ -1,6 +1,5 @@
 import React, { useCallback, useContext } from 'react';
 import { withRouter, Redirect } from "react-router";
-import { Link } from 'react-router-dom';
 
 import { AuthContext } from "../../services/AuthService";
 import app from '../../util/firebaseUtils';
@@ -49,11 +48,6 @@ const Login = ({ history }) => {
             Entrar
           </button>
         </form>
-        <div className="cadastre-se_link">
-          <Link className="link" to="/signup" >
-            Cadastre-se
-          </Link>
-        </div>
       </section>
     </main>
 

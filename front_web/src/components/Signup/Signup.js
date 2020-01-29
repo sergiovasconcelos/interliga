@@ -9,29 +9,28 @@ const SignUp = ({ history }) => {
   const handleSignUp = useCallback(event => {
     event.preventDefault();
 
-    const execSignup = async () => {
-      const { nome, cpf, celular, local_trabalho, cargo, email, senha } = event.target.elements;
+    const execSignup = async () => { // função assincrona
+      const { nome, cpf, celular, local_trabalho, cargo, email, senha, admin } = event.target.elements;
       const usuario = {
-        nome,
-        cpf,
-        celular,
-        local_trabalho,
-        cargo,
-        email,
-        senha,
+        nome: nome.value,
+        cpf: cpf.value,
+        celular: celular.value,
+        local_trabalho: local_trabalho.value,
+        cargo: cargo.value,
+        email: email.value,
+        admin: admin.checked,
       }
       try {
-        await app.auth().createUserWithEmailAndPassword(email.value, senha.value).then(user => {
-          console.log('Usuário', user);
-          console.log('Dados do usuário', usuario);
-          // app.firestore().collection('usuarios')
-        });
-
-        // redireciona para a Home
+        console.log(usuario);
+        await app.auth().createUserWithEmailAndPassword(email.value, senha.value)
+          .then(user => {
+            app.firestore().collection('usuarios').doc(user.user.uid).set(usuario);
+          });
+        // redireciona para a Home se tudo executar com sucesso
         history.push("/");
-
       } catch (error) {
         alert(error);
+        console.log(error);
       }
     }
 
@@ -71,7 +70,7 @@ const SignUp = ({ history }) => {
           </section>
           <section className="usuario_admin">
             Usuário admin?
-          <input type="checkbox" />
+          <input name="admin" type="checkbox" />
           </section>
           <section className="btn_criar_usuario">
             <button type="submit">Criar Usuário</button>
