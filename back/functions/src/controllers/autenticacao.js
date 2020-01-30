@@ -29,3 +29,25 @@ exports.cadastrarUsuario = (req, res, app) => {
 exports.fazerLogin = (req, res, app) => {
     res.send('Ok');
 }
+
+exports.addAdminRole = (data, context) => {
+    // checa se a requisição é feita por um admin
+    if(context.auth.token.admin !== true){
+        return {error: 'Only admins can add other admins, sucker!'}
+    }
+
+    // recupera o usuário e adiciona uma custom claim de admin nele
+    return admin.auth().getUserByEmail(data.email).then(user => {
+        return admin.auth().setCustomUserClaims(user.uid, {
+            admin: true
+        })
+    })
+    .then(() => {
+        return {
+            message: `Success! ${data.email} has been made an admin`
+        }
+    })
+    .catch(err => {
+        return err;
+    });
+}
