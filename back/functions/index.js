@@ -36,3 +36,7 @@ exports.cadastrarUsuario = functions.https.onRequest((req, res) => {
 exports.fazerLogin = functions.https.onRequest((req, res) => {
     autenticacao.fazerLogin(req, res, app); // pelo que tô vendo só dá pra fazer login no front
 });
+
+exports.addAdminRole = functions.https.onCall((data, context) => {
+    autenticacao.addAdminRole(data, context);
+})
