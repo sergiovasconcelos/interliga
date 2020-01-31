@@ -4,6 +4,7 @@ import app from "../../util/firebaseUtils";
 import { Link } from 'react-router-dom';
 import './Signup.css';
 import engrenagem_icon from '../../assets/engrenagem_icon.png';
+import createUser from '../../services/AuthService';
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(event => {
@@ -22,10 +23,8 @@ const SignUp = ({ history }) => {
       }
       try {
         console.log(usuario);
-        await app.auth().createUserWithEmailAndPassword(email.value, senha.value)
-          .then(user => {
-            app.firestore().collection('usuarios').doc(user.user.uid).set(usuario);
-          });
+        // chama a função de criação de usuário no service 
+        await createUser(usuario, senha.value, );
         // redireciona para a Home se tudo executar com sucesso
         history.push("/");
       } catch (error) {

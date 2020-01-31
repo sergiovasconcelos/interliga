@@ -1,15 +1,23 @@
-exports.cadastrarUsuario = (req, res, app) => {
+exports.cadastrarUsuario = (data, context, app) => {
+    const user = data.user;
+    const password = data.password;
     // Inicia a criação do usuario usando email e senha recuperados do body da requisição
     app.auth().createUser({
-        email: req.body.email,
-        password: req.body.password
+        email: user.email,
+        password: password,
     })
         .then(userRecord => {
             // Grava o email do usuario na coleção de usuarios no firestore
             // let data_atual = firebase.firestore.Timestamp.now();
             return app.firestore().collection('usuarios').doc(userRecord.uid).set({
-                email: userRecord.email,
-                data_criacao: new Date()
+                data_criacao: new Date(),
+                nome: user.nome,
+                cpf: user.cpf,
+                celular: user.celular,
+                local_trabalho: user.local_trabalho,
+                cargo: user.cargo,
+                email: user.email,
+                admin: user.admin,
             })
         })
         .then(userInData => {
@@ -30,24 +38,24 @@ exports.fazerLogin = (req, res, app) => {
     res.send('Ok');
 }
 
-exports.addAdminRole = (data, context) => {
+exports.addAdminRole = (data, context, app) => {
     // checa se a requisição é feita por um admin
-    if(context.auth.token.admin !== true){
-        return {error: 'Only admins can add other admins, sucker!'}
+    if (context.auth.token.admin !== true) {
+        return { error: 'Only admins can add other admins, sucker!' }
     }
 
     // recupera o usuário e adiciona uma custom claim de admin nele
-    return admin.auth().getUserByEmail(data.email).then(user => {
-        return admin.auth().setCustomUserClaims(user.uid, {
+    return app.auth().getUserByEmail(data.email).then(user => {
+        return app.auth().setCustomUserClaims(user.uid, {
             admin: true
         })
     })
-    .then(() => {
-        return {
-            message: `Success! ${data.email} has been made an admin`
-        }
-    })
-    .catch(err => {
-        return err;
-    });
+        .then(() => {
+            return {
+                message: `Success! ${data.email} has been made an admin`
+            }
+        })
+        .catch(err => {
+            return err;
+        });
 }

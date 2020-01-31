@@ -25,3 +25,8 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+export const createUser = (user, password) => {
+  createUserFunction = app.functions().httpsCallable('cadastrarUsuario');
+  createUserFunction({ user, password });
+}
