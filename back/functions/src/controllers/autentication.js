@@ -1,4 +1,4 @@
-exports.cadastrarUsuario = (data, context, app) => {
+exports.createUser = (data, context, app) => {
     const user = data.user;
     const password = data.password;
     // Inicia a criação do usuario usando email e senha recuperados do body da requisição
@@ -22,19 +22,19 @@ exports.cadastrarUsuario = (data, context, app) => {
         })
         .then(userInData => {
             // Retorna as informações de sucesso na criação e gravação do novo usuário
-            return res.status(200).json({
+            return {
                 response: 'Criado e salvo com sucesso',
                 data: userInData,
                 success_saved: true
-            })
+            }
         })
         .catch(err => {
             // Em caso de erro retorna com um status 500
-            return res.status(500).json(err);
+            return err;
         })
 }
 
-exports.fazerLogin = (req, res, app) => {
+exports.login = (req, res, app) => {
     res.send('Ok');
 }
 
@@ -57,5 +57,25 @@ exports.addAdminRole = (data, context, app) => {
         })
         .catch(err => {
             return err;
+        });
+}
+
+exports.addAdminRoleRequest = (req, res, app) => {
+
+    // recupera o usuário e adiciona uma custom claim de admin nele
+    console.log(req.body);
+    return app.auth().getUserByEmail(req.body.email)
+        .then(user => {
+            return app.auth().setCustomUserClaims(user.uid, {
+                admin: true
+            })
+        })
+        .then(() => {
+            return res.json({
+                message: `Success! ${req.body.email} has been made an admin`
+            })
+        })
+        .catch(err => {
+            return res.status(500).json({ err });
         });
 }

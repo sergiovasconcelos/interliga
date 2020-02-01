@@ -1,10 +1,9 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
-import app from "../../util/firebaseUtils";
 import { Link } from 'react-router-dom';
 import './Signup.css';
 import engrenagem_icon from '../../assets/engrenagem_icon.png';
-import createUser from '../../services/AuthService';
+import { createUser, addAdminRole } from '../../services/AuthService';
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(event => {
@@ -24,7 +23,11 @@ const SignUp = ({ history }) => {
       try {
         console.log(usuario);
         // chama a função de criação de usuário no service 
-        await createUser(usuario, senha.value, );
+        await createUser(usuario, senha.value);
+        // se o usuário for admin é chamada a funçao de adicionar a claim de admin
+        if(usuario.admin){
+          await addAdminRole(usuario.email);
+        }
         // redireciona para a Home se tudo executar com sucesso
         history.push("/");
       } catch (error) {
@@ -46,7 +49,7 @@ const SignUp = ({ history }) => {
           <Link className="link" to="/usuarios">Usuários</Link>
         </div>
         <div className="icons">
-          <Link to="/config"><img className="icon" src={engrenagem_icon} /></Link>
+          <Link to="/config"><img className="icon" src={engrenagem_icon} alt="Configurações" /></Link>
         </div>
       </header>
       <div className="container">
