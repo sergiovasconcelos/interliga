@@ -25,3 +25,23 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+export const createUser = (user, password) => {
+  const createUserFunction = app.functions().httpsCallable('createUser');
+  return createUserFunction({ user, password });
+}
+
+export const addAdminRole = (email) => {
+  const addAdminRole = app.functions().httpsCallable('addAdminRole');
+  return addAdminRole({email});
+}
+
+export const verifyAdminRole = () => {
+  app.auth().onAuthStateChanged((user) => {
+    user.getIdTokenResult().then(idTokenResult => {
+      const isAdmin = idTokenResult.claims.admin
+      console.log(isAdmin);
+      return isAdmin ? true : false;
+    })
+  })
+}
